@@ -27,8 +27,8 @@ export default class Login extends React.Component {
                 <TextInput style={styles.loginTextInput}
                     onChangeText={text => onChangeText(text)}
                 />
-                <Button title="Login"
-                onPress={this.handleOnPress}/>
+                <Button style={styles.loginButton}
+                title="Login" onPress={this.handleOnPress}/>
             </View>
         );
     }
@@ -42,8 +42,11 @@ const styles = StyleSheet.create({
     loginTextInput: {
         width: 200,
         height: 40,
-        borderColor: 'gray',
+        borderColor: 'gray',        
         borderBottomWidth: 1,
         marginBottom: 5,
+    },
+    loginButton: {
+        backgroundColor: '#009688',
     }
 });

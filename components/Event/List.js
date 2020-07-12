@@ -6,35 +6,14 @@ import { StyleSheet, Text, View,TextInput,Button, Alert, FlatList,Item, Dimensio
 
   
 
-export default class Home extends React.Component {
+export default class List extends React.Component {
     state = {
         itens: [{ name: 'Cesar' }, { name: 'Marcel' }, { name: 'Wagner' }],
       };
     render() {
         return (
             <View styles={styles.container}> 
-                <Text styles={styles.header}>EVENTOS</Text>            
-                <TextInput style={styles.SearchTextInput} 
-                onChangeText={text => onChangeText(text)}
-                />
-                <FlatList
-        style={{ marginTop: 40 }}
-        data={this.state.itens}
-        renderItem={({ item }) => (
-          <View style={{marginBottom: 10 }}>
-            <Text style={{ backgroundColor: 'blue', color: 'white', padding: 10, width: Dimensions.get('window').width }}>
-              {item.name}
-            </Text>
-          </View>
-        )}
-      />
-                      
-            <View style={styles.fixToText}>
-          <Button
-            title="Home"
-            onPress={() => Alert.alert('Go to home')}
-          />
-        </View>
+
             </View>
         );
     }

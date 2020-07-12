@@ -13,28 +13,7 @@ export default class Create extends React.Component {
     render() {
         return (
             <View styles={styles.container}> 
-                <Text styles={styles.header}>EVENTOS</Text>            
-                <TextInput style={styles.SearchTextInput} 
-                onChangeText={text => onChangeText(text)}
-                />
-                <FlatList
-        style={{ marginTop: 40 }}
-        data={this.state.itens}
-        renderItem={({ item }) => (
-          <View style={{marginBottom: 10 }}>
-            <Text style={{ backgroundColor: 'blue', color: 'white', padding: 10, width: Dimensions.get('window').width }}>
-              {item.name}
-            </Text>
-          </View>
-        )}
-      />
-                      
-            <View style={styles.fixToText}>
-          <Button
-            title="Home"
-            onPress={() => Alert.alert('Go to home')}
-          />
-        </View>
+
             </View>
         );
     }

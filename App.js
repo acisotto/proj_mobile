@@ -1,23 +1,58 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput,Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import Login from './components/Login';
 import Home from './components/Home';
-export default function App() {
+import Details from './components/Event/Details';
+
+
+
+function LoginScreen({ navigation }) {
   return (
-    <View style={styles.container}>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Login/>
+      <Button title="Home" onPress={() => navigation.navigate('Home')}/>
+    </View>
+  );
+}
+
+function HomeScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Home/>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function DetailsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Details/>
+    </View>
+  );
+}
+
+
+const stack = createStackNavigator();
+
+
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <NavigationContainer>
+      <stack.Navigator>
+        <stack.Screen name="Login" component={LoginScreen} />
+        <stack.Screen name="Home" component={HomeScreen} />
+        <stack.Screen name="Datails" component={DetailsScreen} />
+      </stack.Navigator>
+      </NavigationContainer>
+    );
+
+
+  }
+
+}
