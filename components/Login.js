@@ -1,23 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button,Alert} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 
 export default class Login extends React.Component {
-    
-    async handleOnPress(){
-        const result = await fetch('https://reqres.in/api/users/2')
-              .then((response) => response.json())
-              .then((json) => {
-                return json;
-              })
-              .catch((error) => {
-                console.error(error);
-              });
 
-            console.log(result);
-          }
-    
-    render() {        
+    async handleOnPress() {
+        const result = await fetch('https://reqres.in/api/users/2')
+            .then((response) => response.json())
+            .then((json) => {
+                return json;
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
+        console.log(result);
+    }
+
+    render() {
         return (
             <View styles={styles.container}>
                 <TextInput style={styles.loginTextInput}
@@ -28,7 +28,7 @@ export default class Login extends React.Component {
                     onChangeText={text => onChangeText(text)}
                 />
                 <Button style={styles.loginButton}
-                title="Login" onPress={this.handleOnPress}/>
+                    title="Login" onPress={this.handleOnPress} />
             </View>
         );
     }
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     loginTextInput: {
         width: 200,
         height: 40,
-        borderColor: 'gray',        
+        borderColor: 'gray',
         borderBottomWidth: 1,
         marginBottom: 5,
     },

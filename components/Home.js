@@ -1,7 +1,8 @@
-
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert, FlatList, Dimensions } from 'react-native';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 
 
@@ -23,11 +24,7 @@ export default class Home extends React.Component {
           renderItem={({ item }) => (
             <View style={{ marginBottom: 1 }}>
               <Text style={{ backgroundColor: 'white', color: 'black', padding: 30, height: 100, width: Dimensions.get('window').width / 2.2 }}
-                onPress={() => {
-                  this.props.navigation.navigate('Details', {
-                    id: item.id
-                  });
-                }}>
+                onPress={() => navigation.navigate('Details')}>
                 {item.name}
               </Text>
             </View>
@@ -35,14 +32,6 @@ export default class Home extends React.Component {
           }
           numColumns={2}
         />
-        <View style={styles.fixToText}>
-          <Button style={styles.submitButton}
-            title="Home"
-            onPress={() => Alert.alert('Go to home')}
-
-            color={"green"}
-          />
-        </View>
       </View>
     );
   };

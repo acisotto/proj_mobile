@@ -27,10 +27,26 @@ function HomeScreen({ navigation }) {
   );
 }
 
-function DetailsScreen({ navigation }) {
+function DetailsScreen({navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Details/>
+    </View>
+  );
+}
+
+function ListScreen({navigation }) {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <List/>
+    </View>
+  );
+}
+
+function CreateOrUpdate({navigation }) {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Create/>
     </View>
   );
 }
@@ -47,7 +63,9 @@ export default class App extends React.Component {
       <stack.Navigator>
         <stack.Screen name="Login" component={LoginScreen} />
         <stack.Screen name="Home" component={HomeScreen} />
-        <stack.Screen name="Datails" component={DetailsScreen} />
+        <stack.Screen name="Details" component={DetailsScreen} />
+        <stack.Screen name="List" component={ListScreen} />
+        <stack.Screen name="CreateOrUpdate" component={CreateOrUpdate} />
       </stack.Navigator>
       </NavigationContainer>
     );
