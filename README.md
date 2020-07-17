@@ -51,4 +51,4 @@ password: wooow
 
 Segue video instrutivo para demonstração de utilização:
 
-[![Watch the video](https://https://img.youtube.com/vi/hl7oIJUhxko/eesapp.jpg)](https://youtu.be/hl7oIJUhxko)
+[![Watch the video](https://img.youtube.com/vi/hl7oIJUhxko/maxresdefault.jpg)](https://youtu.be/hl7oIJUhxko)
