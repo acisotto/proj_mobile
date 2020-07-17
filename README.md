@@ -46,3 +46,9 @@ Para ter acesso pela tela de login entrar com as seguintes credenciais:
 user: professor
 password: wooow
 ```
+
+## Demonstração de Utilização
+
+Segue video instrutivo para demonstração de utilização:
+
+[![Watch the video](https://https://img.youtube.com/vi/hl7oIJUhxko/eesapp.jpg)](https://youtu.be/hl7oIJUhxko)
