@@ -2,7 +2,7 @@
 
 ## Sobre 
 
-Projeto de simulação de uma agenda de contatos para disciplina de "Desenvolvimento Mobile" de Especialização em Engenharia de Software
+Projeto para simulação de agenda de contatos para disciplina de "Desenvolvimento Mobile" de Especialização em Engenharia de Software
 
 Este projeto consiste em uma aplicação mobile utilizando a tecnologia `React-Native` e a ferramenta expo.
 
