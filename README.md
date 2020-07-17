@@ -21,7 +21,8 @@ npm install
 Na linha de comando utilizar o seguinte para inicializar o expo app
 
 
-#./proj_mobile/
+```bash
+./proj_mobile/
 expo start
 ```
 
@@ -41,7 +42,7 @@ para a aplicação foi utilizada a API do site: http://jsonplaceholder.typicode.
 
 Para ter acesso pela tela de login entrar com as seguintes credenciais:
 
-```
+```bash
 user: professor
 password: wooow
 ```
