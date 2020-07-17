@@ -1,192 +1,47 @@
-# NDSports
+# Project Mobile EES
 
 ## Sobre 
 
-Projeto utilizado para controle de eventos
+Projeto de simulação de uma agenda de contatos para disciplina de "Desenvolvimento Mobile" de Especialização em Engenharia de Software
 
-Este projeto consiste de uma API em `nodejs` e uma aplicação web para consumo da mesma, em `React`.
+Este projeto consiste em uma aplicação mobile utilizando a tecnologia `React-Native` e a ferramenta expo.
 
 
 ## Instalação
 
 ### Instalar dependências
 
-Utilize este comando para instalar as dependências do projeto
+Utilize este comando para instalar as dependências do projeto dentro do mesmo
 
 ```bash
 npm install
 ```
 
-### Iniciar Servidor
-Dentro da raiz do projeto utilize o seguinte comando para iniciar o servidor
-
-```bash
-#./ndsports/
-cd backend
-
-#./ndsports/backend
-node server
-```
-
-Ao inicializar o servidor a seguinte mensagem será impressa no CLI
-```bash
-$ node server
-Ouvindo porta: 5000
-Conexão mongoose realizada com sucesso!
-```
-
-
 ### Executar App
-Após a inicializar o servidor voltar a pasta raiz, e utilizar o seguinte comando para inicializar o react app
+Na linha de comando utilizar o seguinte para inicializar o expo app
 
-```bash
-#./ndsports/backend
-cd..
 
-#./ndsports/
-npm start
+#./proj_mobile/
+expo start
 ```
 
-Isto inicializará o web app em `localhost:3000`
+Isto inicializará a ferramenta do expo, nela você pode iniciar o modo que preferir, 
+caso tenha um emulador e android ou ios, pode inicia-lo na aplicação. Caso prefira,
+é possível baixar a versão expo no celular e visualizar pelo mesmo com o QR fornecido na execução.
+(Site do Expo: https://expo.io/)
+
 
 
 ## API
 
-Criada para tratar requisições de eventos.
+para a aplicação foi utilizada a API do site: http://jsonplaceholder.typicode.com para simular a agenda de contatos.
 
-#### `Schema`
-```javascript
-    {        
-        name: String,
-        location: String,
-        dateToHappen: Date        
-    }
+
+## Tela de Login
+
+Para ter acesso pela tela de login entrar com as seguintes credenciais:
+
 ```
-
-
-### `GET`
-
-Retorna lista de eventos
-
-#### Request  
-```
-http://localhost:5000/events/
-```
-
-#### Response
-```json
-[
-    {
-        "_id": "5e615ee3520f431ea027d71b",
-        "name": "Futiba da EES",
-        "location": "Ufscar",
-        "dateToHappen": "2019-05-27T02:22:49.052Z",
-        "__v": 0
-    },
-    {
-        "_id": "5e6188802a24ec34041fd0b1",
-        "name": "Campeonato de comer Hamburguer",
-        "location": "Seu Burgao",
-        "dateToHappen": "2020-05-12T23:16:37.000Z",
-        "__v": 0
-    },
-    {
-        "_id": "5e6194ca2a24ec34041fd0b2",
-        "name": "Basketinho do Gutinho",
-        "location": "Ipiranga",
-        "dateToHappen": "2020-03-06T00:09:09.537Z",
-        "__v": 0
-    }
-]
-```
-
-
-### `GET /:id`
-
-Retorna evento específico do :id 
-
-#### Request 
-```
-http://localhost:5000/events/:id
-```
-
-Considerando :id = 5e615ee3520f431ea027d71b
-
-#### Response
-```json
-{
-    "_id": "5e615ee3520f431ea027d71b",
-    "name": "Futiba da EES",
-    "location": "Ufscar",
-    "dateToHappen": "2019-05-27T02:22:49.052Z",
-    "__v": 0
-}
-```
-
-
-### `POST`
-
-Adiciona evento na lista
-
-#### Request
-```
-http://localhost:5000/events/add
-```
-
-
-##### Requestbody
-```json
-{
-	"name": "Basketinho do Gutinho",
-    "location": "Ipiranga",
-    "dateToHappen": "2020-03-06T00:09:09.537Z"
-}
-```    
-
-#### Response
-```json
-"Evento Adicionado."
-```
-
-### `PATCH /:id`
-
-Atualiza dados de determinado evento, especificado pelo :id
-
-#### Request
-```
-http://localhost:5000/events/update/:id
-```
-
-Considerando :id = 5e6194ca2a24ec34041fd0b2
-
-##### Requestbody
-```json
-{    
-    "name": "Volêi FACENS",
-    "location": "FACENS",
-    "dateToHappen": "2019-05-27T02:22:49.052Z"    
-}
-
-#### Response
-```json
-"Evento: n atualizado."
-```
-*Sendo n o número de documentos atualizados*
-
-
-
-### `DELETE`
-
-Remove um evento da lista
-
-#### Request
-```
-http://localhost:5000/events/:id
-```
-
-Considerando :id = 5e6194ca2a24ec34041fd0b2
-
-#### Response
-```json
-"Deletado com sucesso"
+user: professor
+password: wooow
 ```
