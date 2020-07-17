@@ -3,29 +3,49 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 
 export default class Login extends React.Component {
+    constructor(props) {
+        super(props);
 
-    async handleOnPress() {
-        const result = await fetch('https://reqres.in/api/users/2')
-            .then((response) => response.json())
-            .then((json) => {
-                return json;
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        this.state = {
+            user: "",
+            password: "",
+        }
 
-        console.log(result);
+        this.handleOnChange = this.handleOnChange.bind(this);
+        this.handleOnPress = this.handleOnPress.bind(this);
+    }
+
+    handleOnChange(e, val = 1) {
+
+        if (val == 1)
+            this.setState({ user: e })
+        else
+            this.setState({ password: e })
+        // else
+        // this.setState({ password: e.target.value })
+    }
+
+    handleOnPress() {
+
+        if (this.state.user == "professor" && this.state.password == "wooow") {
+            this.props.navigation.navigate('Home');
+        } else {
+            alert('LOGIN INVALIDO! WOOOOOOW');
+        }
     }
 
     render() {
         return (
-            <View styles={styles.container}>
+            <View style={styles.container}>
                 <TextInput style={styles.loginTextInput}
-                    onChangeText={text => onChangeText(text)}
+                    onChangeText={e => this.handleOnChange(e, 1)}
                 />
 
                 <TextInput style={styles.loginTextInput}
-                    onChangeText={text => onChangeText(text)}
+                    onChangeText={e => this.handleOnChange(e, 2)}
+                    secureTextEntry={true}
+                    textContentType={'password'}
+
                 />
                 <Button style={styles.loginButton}
                     title="Login" onPress={this.handleOnPress} />
@@ -36,8 +56,9 @@ export default class Login extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff'
+        flex: 1, 
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     loginTextInput: {
         width: 200,

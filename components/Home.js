@@ -10,23 +10,46 @@ import { createStackNavigator } from '@react-navigation/stack';
 export default class Home extends React.Component {
   state = {
     usuarios: [],
+    usuariosTemp: []
   };
+
+  GoToDetails(curItem) {
+    
+    this.props.navigation.navigate('Details', {
+      item: curItem
+    })
+  }
+
+  saveText(text) {
+    if(text == ''){
+      this.setState({usuariosTemp: this.state.usuarios});
+    }else{
+    this.setState({usuariosTemp: this.state.usuariosTemp.filter(p => p.name.toUpperCase().startsWith(text.toUpperCase()))});
+  }
+}
+
+
   render() {
+   
+  
     return (
       <View styles={styles.container}>
-        <Text styles={styles.header}>EVENTOS</Text>
+        <Text styles={styles.header}>Buscar</Text>
         <TextInput style={styles.SearchTextInput}
-          onChangeText={text => onChangeText(text)}
+          onChangeText={text => this.saveText(text)}
         />
         <FlatList
           style={{ marginTop: 40 }}
-          data={this.state.usuarios}
+          data={this.state.usuariosTemp}
           renderItem={({ item }) => (
-            <View style={{ marginBottom: 1 }}>
-              <Text style={{ backgroundColor: 'white', color: 'black', padding: 30, height: 100, width: Dimensions.get('window').width / 2.2 }}
-                onPress={() => navigation.navigate('Details')}>
+            <View style={{ backgroundColor: 'white', color: 'black', padding: 30, height: 100, width: Dimensions.get('window').width / 2.0, borderColor: '#e8e8e8', borderWidth: 1 }}>
+              <Text>
                 {item.name}
-              </Text>
+              </Text>              
+              <Button style={styles.controlButton}
+                title="+ Info"
+                onPress={() => this.GoToDetails(item)}
+              />              
             </View>
           )
           }
@@ -36,11 +59,14 @@ export default class Home extends React.Component {
     );
   };
 
-  componentDidMount() {
+
+
+  componentDidMount(text) {
     fetch('http://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
       .then((data) => {
         this.setState({ usuarios: data })
+        this.setState({ usuariosTemp: data })
       })
       .catch(console.log)
   }
@@ -76,5 +102,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
 
+  },
+  controlButton:{
+    position: 'absolute',
+    alignSelf: 'flex-end',
+    width: '2',
+    color: 'black',
+    backgroundColor: '#ccfbcc'
   }
 });
